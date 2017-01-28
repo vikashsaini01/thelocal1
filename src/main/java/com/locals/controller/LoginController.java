@@ -26,6 +26,13 @@ public class LoginController {
 	@Autowired
 	UserInfoImpl userInfoImpl;
 
+	/**
+	 * 
+	 * @param code
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/fbhome")
 	public ModelAndView fbhome(@RequestParam("code") String code, HttpSession session) throws Exception {
 		UserInfo userInfo = null;
