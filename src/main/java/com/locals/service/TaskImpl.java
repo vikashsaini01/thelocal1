@@ -15,7 +15,8 @@ public class TaskImpl {
 
 	public Task addTask(Task task) throws Exception {
 
-		return taskDao.addTask(task);
+		//return taskDao.addTask(task);
+		return taskDao.saveTask(task);
 	}
 	
 	public List<Task> getTasks(String userId) throws Exception {

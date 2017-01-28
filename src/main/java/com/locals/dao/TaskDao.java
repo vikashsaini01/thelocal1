@@ -3,9 +3,12 @@ package com.locals.dao;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import com.locals.entity.Task;
@@ -13,6 +16,12 @@ import com.locals.entity.UserInfo;
 import com.locals.utils.SqlConnection;
 @Repository
 public class TaskDao {
+	
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 	
 	public UserInfo getUserInfo(String username, String password)throws Exception{
 		PreparedStatement preparedStatement =
@@ -30,6 +39,14 @@ public class TaskDao {
 	}
 	
 	
+	public Task saveTask(Task task){
+		Session session = this.sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.persist(task);
+		tx.commit();
+		session.close();
+		return task;
+	}
 	
 	public Task addTask(Task task) throws Exception{
 		PreparedStatement preparedStatement =
@@ -61,6 +78,6 @@ public class TaskDao {
 		ResultSet rs  = preparedStatement.executeQuery();
 		
 		
-		
+	return new ArrayList<Task>();	
 	}
 }

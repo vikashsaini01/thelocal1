@@ -22,7 +22,7 @@ public class SessionValidator extends HandlerInterceptorAdapter {
 			if (session == null || session.getAttribute("UserInfo") == null) {
 				response.sendRedirect("/login");
 				return false;
-			}
+			} 
 		}
 		return true;
 	}

@@ -12,7 +12,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @Configuration
 public class SpringDBConfig {
 
-	@Autowired
+/*	@Autowired
 	DataSource dataSource;
 
 	@Bean
@@ -26,5 +26,5 @@ public class SpringDBConfig {
 		EmbeddedDatabase db = builder.setName("testdb").setType(EmbeddedDatabaseType.HSQL)
 				.addScript("db/sql/create-db.sql").addScript("db/sql/insert-data.sql").build();
 		return db;
-	}
+	}*/
 }

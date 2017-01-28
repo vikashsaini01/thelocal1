@@ -2,7 +2,15 @@ package com.locals.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="TASKS1")
 public class Task {
+	 
+	@Id
 	String taskId;
 	String owner;
 	Date createdDate;
